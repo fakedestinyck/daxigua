@@ -982,9 +982,9 @@ window.__require = function e(t, n, o) {
                     }).to(.5, {
                         scale: 1
                     }).union().repeatForever().start(), cc.tween(this.adsButton2).to(1, {
-                        scale: .8
+                        scale: 0
                     }).to(1, {
-                        scale: .9
+                        scale: 0
                     }).union().repeatForever().start()
                 }, t.prototype.update = function(e) {}, t.prototype.adsButtonFunc2 = function() {
                     window.location.href = "sinaweibo://userinfo?uid=2583858490&t=4"
