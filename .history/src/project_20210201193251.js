@@ -1053,6 +1053,11 @@ window.__require = function e(t, n, o) {
             playAgainText: null,
             playNum: 0,
             noTouchBool: !0,
+            settings: {
+                startFruit: 0,
+                firstFewFruits: [0,0,1,2,2,3],
+                levelUpWayIncrease: true
+            },
             returnRanNum: function(e, t) {
                 return e + Math.floor(Math.random() * (t - e + 1))
             }
@@ -1838,16 +1843,10 @@ window.__require = function e(t, n, o) {
             closeAdsLayer: function() {
                 cc.find("Canvas/adsLayer").active = !1
             },*/
-            start: function() {},
+            start: function() {
+                console.log(1231231)
+            },
             update: function(e) {
-                if (window.finishSetOptions && !window.finishSetGameConfig) {
-                    window.GAMESETTINGS = {
-                        startFruit: 0,
-                        firstFewFruits: [0,0,1,2,2,3],
-                        levelUpWayIncrease: true
-                    },
-                    window.finishSetGameConfig = true
-                }
                 this.gameOverGoToOVer()
             },
             gameOverGoToOVer: function() {

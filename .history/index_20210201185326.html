@@ -181,12 +181,8 @@
                 ,
             resize: false,
             btn: ['开始游戏'],
-            yes: function(index, layero) {
-                layer.close(index)
-                window.finishSetOptions = true
-            },
             btnAlign: 'c',
-            shadeClose: false //开启遮罩关闭
+            shadeClose: true //开启遮罩关闭
                 ,
             moveType: 1 //拖拽模式，0或者1
                 ,
@@ -211,9 +207,7 @@
                 '</div>',
 
 
-            success: function (layero) {
-                
-            }
+            success: function (layero) {}
         });
 
         var loadintT = document.getElementById("loadingText");

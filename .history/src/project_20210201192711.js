@@ -1053,6 +1053,11 @@ window.__require = function e(t, n, o) {
             playAgainText: null,
             playNum: 0,
             noTouchBool: !0,
+            settings: {
+                startFruit: 0,
+                firstFewFruits: [0,0,1,2,2,3],
+                levelUpWayIncrease: true
+            },
             returnRanNum: function(e, t) {
                 return e + Math.floor(Math.random() * (t - e + 1))
             }
@@ -1115,12 +1120,12 @@ window.__require = function e(t, n, o) {
                     }).to(.3, {
                         opacity: 0
                     }).union().repeatForever().start(), this.lineNode.children[0].active = !1, this.fruitS = ["PuTaoS", "YingTaoS", "JuZiS", "NingMengS", "MiHouTaoS", "XiHongShiS", "TaoS", "BoLuoS", "YeZiS", "XiGuaS"]
-                    let that = this;
                     let recheckOptions = setInterval(function(){
                         if (window.finishSetOptions) {
-                            that.createOneFruit(0);
-                            clearInterval(recheckOptions);
+                            console.log('finishSetOptions')
+                            clearInterval(recheckOptions)
                         }
+                        console.log('not start')
                     }, 200);
                 }, t.prototype.update = function(e) {
                     a.default.GameUpdateCtrl, this.lineNode.children[0].y - n.Instance.fruitHeigth < 100 && this.lineNode.children[0].y - n.Instance.fruitHeigth >= 0 && (this.lineNode.children[0].active = !0), this.lineNode.children[0].y - n.Instance.fruitHeigth > 100 && (this.lineNode.children[0].active = !1)
@@ -1840,14 +1845,6 @@ window.__require = function e(t, n, o) {
             },*/
             start: function() {},
             update: function(e) {
-                if (window.finishSetOptions && !window.finishSetGameConfig) {
-                    window.GAMESETTINGS = {
-                        startFruit: 0,
-                        firstFewFruits: [0,0,1,2,2,3],
-                        levelUpWayIncrease: true
-                    },
-                    window.finishSetGameConfig = true
-                }
                 this.gameOverGoToOVer()
             },
             gameOverGoToOVer: function() {

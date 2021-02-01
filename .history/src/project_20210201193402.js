@@ -1053,6 +1053,11 @@ window.__require = function e(t, n, o) {
             playAgainText: null,
             playNum: 0,
             noTouchBool: !0,
+            settings: {
+                startFruit: 0,
+                firstFewFruits: [0,0,1,2,2,3],
+                levelUpWayIncrease: true
+            },
             returnRanNum: function(e, t) {
                 return e + Math.floor(Math.random() * (t - e + 1))
             }
@@ -1119,6 +1124,7 @@ window.__require = function e(t, n, o) {
                     let recheckOptions = setInterval(function(){
                         if (window.finishSetOptions) {
                             that.createOneFruit(0);
+                            console.log(e("GameConfig"));
                             clearInterval(recheckOptions);
                         }
                     }, 200);
@@ -1840,14 +1846,6 @@ window.__require = function e(t, n, o) {
             },*/
             start: function() {},
             update: function(e) {
-                if (window.finishSetOptions && !window.finishSetGameConfig) {
-                    window.GAMESETTINGS = {
-                        startFruit: 0,
-                        firstFewFruits: [0,0,1,2,2,3],
-                        levelUpWayIncrease: true
-                    },
-                    window.finishSetGameConfig = true
-                }
                 this.gameOverGoToOVer()
             },
             gameOverGoToOVer: function() {

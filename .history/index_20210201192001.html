@@ -181,10 +181,6 @@
                 ,
             resize: false,
             btn: ['开始游戏'],
-            yes: function(index, layero) {
-                layer.close(index)
-                window.finishSetOptions = true
-            },
             btnAlign: 'c',
             shadeClose: false //开启遮罩关闭
                 ,
@@ -212,7 +208,7 @@
 
 
             success: function (layero) {
-                
+                window.finishSetOptions = true
             }
         });
 
