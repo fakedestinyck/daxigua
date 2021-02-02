@@ -1555,17 +1555,18 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.onTouchEnd = function(e) {
                     var t = this;
                     var f = window.GAMESETTINGS.firstFewFruits;
+                    var extraDifficulty = 0
                     if (window.GAMESETTINGS.levelUpWayIncrease == false && window.GAMESETTINGS.startFruit !== window.GAMESETTINGS.targetFruit) {
                         // 如果是缩小，并且不是只有一种水果的话
                         // if (t.createFruitCount == 100) {
                         //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
                         // }
                         if (t.createFruitCount == 50) {
-                            window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
+                            extraDifficulty = Math.min(1 , 11-window.difficulty[1])
                         }
                     }
                     i.default.playerTouch && null != a.default.Instance.targetFruit && 1 == this.touchNum && (this.touchNum = 0, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).radius = a.default.Instance.targetFruit.height / 2, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).apply(), a.default.Instance.targetFruit.getComponent(cc.RigidBody).type = cc.RigidBodyType.Dynamic, a.default.Instance.targetFruit.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, -800), a.default.Instance.targetFruit = null, this.scheduleOnce(function() {
-                        i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1])), t.createFruitCount++))
+                        i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1]+extraDifficulty)), t.createFruitCount++))
                     }, .5))
                 }, t.prototype.closeTouch = function() {
                     this.node.off(cc.Node.EventType.TOUCH_START, this.onTouchStart, this), this.node.off(cc.Node.EventType.TOUCH_MOVE, this.onTouchMove, this), this.node.off(cc.Node.EventType.TOUCH_END, this.onTouchEnd, this), this.node.off(cc.Node.EventType.TOUCH_CANCEL, this.onTouchEnd, this)
