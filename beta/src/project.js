@@ -995,7 +995,6 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.bannerButtonFunc = function() {
                     window.location.href = "sinaweibo://userinfo?uid=2583858490&t=4"
                 }, t.prototype.ShowFailedUi = function(e, t) {
-                    console.log(e,t)
                     e = e * (window.difficulty[0] + 1); // TODO: 这里要改
                     t = t * (window.difficulty[0] + 1);
                     var n = this;
@@ -1020,7 +1019,7 @@ window.__require = function e(t, n, o) {
                     var t = Math.ceil(e / 1500 * 94);
                     t > 94 && (t = 94);
                     var n = 5 + t;
-                    return "\u5f53\u524d\u6e38\u620f\u6a21\u5f0f\u7f16\u53f7\uff1a" + window.eventVersion
+                    return "\u5f53\u524d\u6e38\u620f\u6a21\u5f0f\uff1a" + window.eventVersionName
                     // return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
                     // return "\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", ["\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", "\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage"][i.default.returnCurrentLanType() - 1]
                 }, t.Instance = null, c([d(cc.Node)], t.prototype, "clickMask", void 0), c([d(cc.Node)], t.prototype, "failedUiBox", void 0), c([d(cc.Node)], t.prototype, "di", void 0), c([d(cc.Label)], t.prototype, "levelTxt", void 0), c([d(cc.Node)], t.prototype, "guan", void 0), c([d(cc.Node)], t.prototype, "continueTip", void 0), c([d(cc.Label)], t.prototype, "scoreLabel", void 0), c([d(cc.Node)], t.prototype, "highScoreNode", void 0), c([d(cc.Node)], t.prototype, "highScore", void 0), c([d(cc.Label)], t.prototype, "highScoreLabel", void 0), c([d(cc.Label)], t.prototype, "resultTxt", void 0), c([d(cc.Label)], t.prototype, "overTxt", void 0), c([d(cc.Node)], t.prototype, "moreGameBtn", void 0), c([d(cc.Node)], t.prototype, "reStartBtn", void 0), c([d(cc.Vec2)], t.prototype, "failedBoxPos", void 0), c([d], t.prototype, "standardScore", void 0), c([d(cc.Node)], t.prototype, "bgMask", void 0), c([d(cc.Node)], t.prototype, "bencichengji", void 0), c([d(cc.SpriteFrame)], t.prototype, "bencichengjiarr", void 0), c([d(cc.Node)], t.prototype, "gengduoyouxi", void 0), c([d(cc.SpriteFrame)], t.prototype, "gengduoyouxiarr", void 0), c([d(cc.Node)], t.prototype, "adsButton2", void 0), c([d(cc.Node)], t.prototype, "bannerButton", void 0), t = n = c([u], t)
@@ -1555,17 +1554,17 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.onTouchEnd = function(e) {
                     var t = this;
                     var f = window.GAMESETTINGS.firstFewFruits;
-                    var extraDifficulty = 0
-                    if (window.GAMESETTINGS.levelUpWayIncrease == false && window.GAMESETTINGS.startFruit !== window.GAMESETTINGS.targetFruit) {
-                        // 如果是缩小，并且不是只有一种水果的话
-                        // if (t.createFruitCount == 100) {
-                        //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
-                        // }
-                        if (t.createFruitCount == 50) {
-                            extraDifficulty = Math.min(1 , 11-window.difficulty[1])
-                        }
-                    }
                     i.default.playerTouch && null != a.default.Instance.targetFruit && 1 == this.touchNum && (this.touchNum = 0, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).radius = a.default.Instance.targetFruit.height / 2, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).apply(), a.default.Instance.targetFruit.getComponent(cc.RigidBody).type = cc.RigidBodyType.Dynamic, a.default.Instance.targetFruit.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, -800), a.default.Instance.targetFruit = null, this.scheduleOnce(function() {
+                        var extraDifficulty = 0;
+                        if (window.GAMESETTINGS.levelUpWayIncrease == false && window.GAMESETTINGS.startFruit !== window.GAMESETTINGS.targetFruit) {
+                            // 如果是缩小，并且不是只有一种水果的话
+                            // if (t.createFruitCount == 100) {
+                            //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
+                            // }
+                            if (t.createFruitCount >= 50) {
+                                extraDifficulty = Math.min(1 , 11-window.difficulty[1])
+                            }
+                        };
                         i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1]+extraDifficulty)), t.createFruitCount++))
                     }, .5))
                 }, t.prototype.closeTouch = function() {
@@ -1866,6 +1865,7 @@ window.__require = function e(t, n, o) {
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
+                            window.eventVersionName = '合成大蒋申';
                             break;
                         case 1:
                             window.GAMESETTINGS.startFruit = 9;
@@ -1876,12 +1876,14 @@ window.__require = function e(t, n, o) {
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
+                            window.eventVersionName = '合成小蒋申';
                             break;
                         case 2:
                             window.GAMESETTINGS.loop = true;
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
+                            window.eventVersionName = '循环合蒋申';
                             break;
                         case 3:
                             window.GAMESETTINGS.startFruit = 0;
@@ -1892,8 +1894,10 @@ window.__require = function e(t, n, o) {
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
+                            window.eventVersionName = '密堆积蒋申';
                             break;
                         default:
+                            window.eventVersionName = '合成蒋申';
                     }
                     // window.GAMESETTINGS.targetFruit = window.GAMESETTINGS.boundaryFruit + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1
                     window.GAMESETTINGS.compareOperator = window.GAMESETTINGS.levelUpWayIncrease ? '<' : '>'
