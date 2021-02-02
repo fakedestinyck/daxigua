@@ -1852,8 +1852,8 @@ window.__require = function e(t, n, o) {
                             }
                             break;
                         case 1:
-                            window.GAMESETTINGS.startFruit = 9;
-                            window.GAMESETTINGS.firstFewFruits = [9,8,7,7,5,6]
+                            window.GAMESETTINGS.startFruit = 8;
+                            window.GAMESETTINGS.firstFewFruits = [8,8,7,6,6,5]
                             window.GAMESETTINGS.levelUpWayIncrease = false
                             window.GAMESETTINGS.boundaryFruit = 1
                             window.GAMESETTINGS.targetFruit = 0
