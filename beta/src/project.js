@@ -1123,7 +1123,7 @@ window.__require = function e(t, n, o) {
                     }).union().repeatForever().start(), this.lineNode.children[0].active = !1, this.fruitS = ["PuTaoS", "YingTaoS", "JuZiS", "NingMengS", "MiHouTaoS", "XiHongShiS", "TaoS", "BoLuoS", "YeZiS", "XiGuaS"]
                     var that = this;
                     var recheckOptions = setInterval(function(){
-                        if (window.finishSetOptions) {
+                        if (window.finishSetGameConfig) {
                             that.createOneFruit(window.GAMESETTINGS.startFruit);
                             clearInterval(recheckOptions);
                         }
@@ -1525,6 +1525,7 @@ window.__require = function e(t, n, o) {
             i = e("../common/PlayerInfo"),
             r = e("../Common/PoolManager"),
             s = e("../Common/Utils"),
+            z = e("./MainGameUi"),
             l = cc._decorator,
             u = l.ccclass,
             d = l.property,
@@ -1563,14 +1564,18 @@ window.__require = function e(t, n, o) {
                             // }
                             if (t.createFruitCount >= 50) {
                                 // p(random|extra)  = p(random&&extra)  /p  (extra)
-                                // 0.2              = 0.1               /p  (extra)
-                                var addExtraDifficulty = s.default.RandomInteger(0, 2)
+                                // 0.2              = 0.05               /p  (extra)
+                                var addExtraDifficulty = s.default.RandomInteger(0, 4)
+                                console.log(addExtraDifficulty)
                                 if (addExtraDifficulty == 0) {
-                                    // 此时概率需要为1/2
+                                    // 此时概率需要为1/4
                                     extraDifficulty = Math.min(1 , 11-window.difficulty[1])
                                 }
                             }
                         };
+                        if (window.GAMESETTINGS.startFruit === window.GAMESETTINGS.targetFruit) {
+                            a.default.score = t.createFruitCount + 1, z.default.Instance.SetScoreTween(a.default.score)
+                        }
                         i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1]+extraDifficulty)), t.createFruitCount++))
                     }, .5))
                 }, t.prototype.closeTouch = function() {
@@ -1587,7 +1592,8 @@ window.__require = function e(t, n, o) {
         "../Common/PoolManager": "PoolManager",
         "../Common/Utils": "Utils",
         "../common/PlayerInfo": "PlayerInfo",
-        "./GameFunction": "GameFunction"
+        "./GameFunction": "GameFunction",
+        "./MainGameUi": "MainGameUi"
     }],
     KnifeCollision: [function(e, t, n) {
         "use strict";
@@ -1892,13 +1898,13 @@ window.__require = function e(t, n, o) {
                             window.eventVersionName = '循环合蒋申';
                             break;
                         case 3:
-                            window.GAMESETTINGS.startFruit = 0;
-                            window.GAMESETTINGS.firstFewFruits = [0,0,0,0,0,0]
+                            window.GAMESETTINGS.startFruit = 3;
+                            window.GAMESETTINGS.firstFewFruits = [3,3,3,3,3,3]
                             window.GAMESETTINGS.levelUpWayIncrease = false
                             window.GAMESETTINGS.boundaryFruit = 1
-                            window.GAMESETTINGS.targetFruit = 0
-                            window.GAMESETTINGS.calculateScoreFunction = function(e) {
-                                return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
+                            window.GAMESETTINGS.targetFruit = 3
+                            window.GAMESETTINGS.calculateScoreFunction = function(o) {
+                                return 0
                             }
                             window.eventVersionName = '密堆积蒋申';
                             break;

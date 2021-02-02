@@ -1123,7 +1123,7 @@ window.__require = function e(t, n, o) {
                     }).union().repeatForever().start(), this.lineNode.children[0].active = !1, this.fruitS = ["PuTaoS", "YingTaoS", "JuZiS", "NingMengS", "MiHouTaoS", "XiHongShiS", "TaoS", "BoLuoS", "YeZiS", "XiGuaS"]
                     var that = this;
                     var recheckOptions = setInterval(function(){
-                        if (window.finishSetOptions) {
+                        if (window.finishSetGameConfig) {
                             that.createOneFruit(window.GAMESETTINGS.startFruit);
                             clearInterval(recheckOptions);
                         }
@@ -1565,6 +1565,7 @@ window.__require = function e(t, n, o) {
                                 // p(random|extra)  = p(random&&extra)  /p  (extra)
                                 // 0.2              = 0.05               /p  (extra)
                                 var addExtraDifficulty = s.default.RandomInteger(0, 4)
+                                console.log(addExtraDifficulty)
                                 if (addExtraDifficulty == 0) {
                                     // 此时概率需要为1/4
                                     extraDifficulty = Math.min(1 , 11-window.difficulty[1])
