@@ -1561,8 +1561,14 @@ window.__require = function e(t, n, o) {
                             // if (t.createFruitCount == 100) {
                             //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
                             // }
-                            if (t.createFruitCount >= 50) {
-                                extraDifficulty = Math.min(1 , 11-window.difficulty[1])
+                            if (t.createFruitCount >= 1) {
+                                // p(random|extra)  = p(random&&extra)  /p  (extra)
+                                // 0.2              = 0.1               /p  (extra)
+                                var addExtraDifficulty = s.default.RandomInteger(0, 2)
+                                if (addExtraDifficulty == 0) {
+                                    // 此时概率需要为1/2
+                                    extraDifficulty = Math.min(1 , 11-window.difficulty[1])
+                                }
                             }
                         };
                         i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1]+extraDifficulty)), t.createFruitCount++))
