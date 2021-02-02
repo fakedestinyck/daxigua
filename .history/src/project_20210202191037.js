@@ -1876,7 +1876,6 @@ window.__require = function e(t, n, o) {
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
-                            break;
                         default:
                     }
                     // window.GAMESETTINGS.targetFruit = window.GAMESETTINGS.boundaryFruit + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1
