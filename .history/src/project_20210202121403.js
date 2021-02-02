@@ -1015,8 +1015,7 @@ window.__require = function e(t, n, o) {
                     var t = Math.ceil(e / 1500 * 94);
                     t > 94 && (t = 94);
                     var n = 5 + t;
-                    // return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
-                    return "\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", ["\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage"][i.default.returnCurrentLanType() - 1]
+                    return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
                 }, t.Instance = null, c([d(cc.Node)], t.prototype, "clickMask", void 0), c([d(cc.Node)], t.prototype, "failedUiBox", void 0), c([d(cc.Node)], t.prototype, "di", void 0), c([d(cc.Label)], t.prototype, "levelTxt", void 0), c([d(cc.Node)], t.prototype, "guan", void 0), c([d(cc.Node)], t.prototype, "continueTip", void 0), c([d(cc.Label)], t.prototype, "scoreLabel", void 0), c([d(cc.Node)], t.prototype, "highScoreNode", void 0), c([d(cc.Node)], t.prototype, "highScore", void 0), c([d(cc.Label)], t.prototype, "highScoreLabel", void 0), c([d(cc.Label)], t.prototype, "resultTxt", void 0), c([d(cc.Label)], t.prototype, "overTxt", void 0), c([d(cc.Node)], t.prototype, "moreGameBtn", void 0), c([d(cc.Node)], t.prototype, "reStartBtn", void 0), c([d(cc.Vec2)], t.prototype, "failedBoxPos", void 0), c([d], t.prototype, "standardScore", void 0), c([d(cc.Node)], t.prototype, "bgMask", void 0), c([d(cc.Node)], t.prototype, "bencichengji", void 0), c([d(cc.SpriteFrame)], t.prototype, "bencichengjiarr", void 0), c([d(cc.Node)], t.prototype, "gengduoyouxi", void 0), c([d(cc.SpriteFrame)], t.prototype, "gengduoyouxiarr", void 0), c([d(cc.Node)], t.prototype, "adsButton2", void 0), c([d(cc.Node)], t.prototype, "bannerButton", void 0), t = n = c([u], t)
             }(cc.Component);
         n.default = p, cc._RF.pop()
@@ -1246,8 +1245,6 @@ window.__require = function e(t, n, o) {
                         cc.v2(i.x, i.y + 100);
                         o.runAction(cc.sequence(cc.spawn(cc.moveTo(.255, i).easing(cc.easeCubicActionOut()), cc.scaleTo(.255, 1 * Math.random() + .5), cc.moveBy(4.25, cc.v2(0, .8 * -cc.winSize.height - Math.random() * cc.winSize.height)), cc.rotateBy(4.25, (1800 * Math.random() + 1200) * (Math.random() > .5 ? 1 : -1)), cc.sequence(cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0)), cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0)), cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0))), cc.sequence(cc.delayTime(.17 * s.default.getRandomNum(20, 24.5)), cc.fadeOut(.17))), cc.removeSelf(!0)))
                     }
-                }, t.prototype.calculateScore = function(e) {
-                    return window.GAMESETTINGS.calculateScoreFunction(e)
                 }, t.prototype.ShowLandParti = function(e, t) {
                     for (var n = t, o = [cc.v2(e.position.x - 8, e.position.y), cc.v2(e.position.x + 8, e.position.y)], c = 0; c < o.length; c++) {
                         if (o[c].x < e.position.x) var a = -1;
@@ -1847,23 +1844,15 @@ window.__require = function e(t, n, o) {
                 if (window.finishSetOptions && !window.finishSetGameConfig) {
                     switch(window.eventVersion) {
                         case 0:
-                            window.GAMESETTINGS.calculateScoreFunction = function(e) {
-                                return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
-                            }
                             break;
                         case 1:
-                            window.GAMESETTINGS.startFruit = 9;
-                            window.GAMESETTINGS.firstFewFruits = [9,9,9,8,8,7]
-                            window.GAMESETTINGS.levelUpWayIncrease = false
+                            window.GAMESETTINGS.startFruit = 10;
+                            window.GAMESETTINGS.firstFewFruits = [10,10,10,9,9,8]
+                            window.GAMESETTINGS.levelUpWayIncrease = false,
                             window.GAMESETTINGS.boundaryFruit = 1
-                            window.GAMESETTINGS.targetFruit = 0
-                            window.GAMESETTINGS.calculateScoreFunction = function(e) {
-                                return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
-                            }
                             break;
                         default:
                     }
-                    // window.GAMESETTINGS.targetFruit = window.GAMESETTINGS.boundaryFruit + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1
                     window.GAMESETTINGS.compareOperator = window.GAMESETTINGS.levelUpWayIncrease ? '<' : '>'
                     window.GAMESETTINGS.collideNEQCondition = (
                         'c'
@@ -3411,26 +3400,26 @@ window.__require = function e(t, n, o) {
                         t.node.parent = cc.find("Canvas/fruitNode"), i.default.Instance.fruitHeigth = i.default.Instance.findHighestFruit(), null != t.node.getComponent(cc.RigidBody) && (t.node.getComponent(cc.RigidBody).angularVelocity = 0);
                         var c = this.fruitNumber,
                             r = n.node.getComponent("fruitData").fruitNumber;
-                        c == r && eval(window.GAMESETTINGS.collideNEQCondition) ? (this.pengzhuangCount += 1, 0 == t.node.getComponent("fruitData").getNumber() && (a.default.score += i.default.Instance.calculateScore(this.fruitNumber), u.default.Instance.SetScoreTween(a.default.score), n.node.getComponent(cc.PhysicsCircleCollider).radius = 0, n.node.getComponent(cc.PhysicsCircleCollider).apply(), this.node.getComponent(cc.PhysicsCircleCollider).radius = 0, this.node.getComponent(cc.PhysicsCircleCollider).apply(), cc.tween(t.node).to(.1, {
+                        c == r && eval(window.GAMESETTINGS.collideNEQCondition) ? (this.pengzhuangCount += 1, 0 == t.node.getComponent("fruitData").getNumber() && (a.default.score += this.fruitNumber + (1 * multiplescore), u.default.Instance.SetScoreTween(a.default.score), n.node.getComponent(cc.PhysicsCircleCollider).radius = 0, n.node.getComponent(cc.PhysicsCircleCollider).apply(), this.node.getComponent(cc.PhysicsCircleCollider).radius = 0, this.node.getComponent(cc.PhysicsCircleCollider).apply(), cc.tween(t.node).to(.1, {
                             position: n.node.position
                         }).call(function() {
-                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(o.fruitNumber + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1, n.node.position), n.node.active = !1, t.node.active = !1, n.node.destroy(), t.node.destroy()
-                        }).start())) : c == r && eval(window.GAMESETTINGS.collideEQCondition) && (this.pengzhuangCount += 1, 0 == t.node.getComponent("fruitData").getNumber() && (a.default.score += i.default.Instance.calculateScore(this.fruitNumber), u.default.Instance.SetScoreTween(a.default.score), n.node.getComponent(cc.PhysicsCircleCollider).radius = 0, n.node.getComponent(cc.PhysicsCircleCollider).apply(), this.node.getComponent(cc.PhysicsCircleCollider).radius = 0, this.node.getComponent(cc.PhysicsCircleCollider).apply(), a.default.playerTouch = !1, cc.tween(t.node).to(.1, {
+                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(o.fruitNumber + 1, n.node.position), n.node.active = !1, t.node.active = !1, n.node.destroy(), t.node.destroy()
+                        }).start())) : c == r && 9 == c && 9 == r && (this.pengzhuangCount += 1, 0 == t.node.getComponent("fruitData").getNumber() && (a.default.score += this.fruitNumber + (1 * multiplescore), u.default.Instance.SetScoreTween(a.default.score), n.node.getComponent(cc.PhysicsCircleCollider).radius = 0, n.node.getComponent(cc.PhysicsCircleCollider).apply(), this.node.getComponent(cc.PhysicsCircleCollider).radius = 0, this.node.getComponent(cc.PhysicsCircleCollider).apply(), a.default.playerTouch = !1, cc.tween(t.node).to(.1, {
                             position: n.node.position
                         }).call(function() {
-                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(o.fruitNumber + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1, n.node.position);
+                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(o.fruitNumber + 1, n.node.position);
                             var e = cc.find("Canvas/upEffectParent").getChildByName("daxigua");
                             e.active = !0, e.opacity = 0, cc.tween(e).to(.5, {
                                 opacity: 150
                             }).start();
                             var c = new cc.Node;
-                            c.addComponent(cc.Sprite).spriteFrame = l.default.Instance.fruit[window.GAMESETTINGS.targetFruit], c.parent = cc.find("Canvas/upEffectParent"), c.position = cc.v2(0, -500), c.scale = 0;
+                            c.addComponent(cc.Sprite).spriteFrame = l.default.Instance.fruit[10], c.parent = cc.find("Canvas/upEffectParent"), c.position = cc.v2(0, -500), c.scale = 0;
                             var r = new cc.Node;
                             r.addComponent(cc.Sprite).spriteFrame = l.default.Instance.caidia[6], r.scale = 3, r.parent = c, r.position = cc.v2(0), cc.tween(r).by(5, {
                                 angle: 360
                             }).repeatForever().start();
                             var s = new cc.Node;
-                            s.addComponent(cc.Sprite).spriteFrame = l.default.Instance.fruit[window.GAMESETTINGS.targetFruit], s.parent = c, s.position = cc.v2(0), d.default.Instance.Play(4, !1, 1), i.default.Instance.ribbonEffect(cc.v2(0, 0)), c.runAction(cc.sequence(cc.spawn(cc.jumpBy(1, 0, 0, 300, 1), cc.scaleTo(1, 1)), cc.delayTime(1), cc.spawn(cc.moveTo(1, cc.v2(0, 500)), cc.scaleTo(1, 0)), cc.callFunc(function() {
+                            s.addComponent(cc.Sprite).spriteFrame = l.default.Instance.fruit[10], s.parent = c, s.position = cc.v2(0), d.default.Instance.Play(4, !1, 1), i.default.Instance.ribbonEffect(cc.v2(0, 0)), c.runAction(cc.sequence(cc.spawn(cc.jumpBy(1, 0, 0, 300, 1), cc.scaleTo(1, 1)), cc.delayTime(1), cc.spawn(cc.moveTo(1, cc.v2(0, 500)), cc.scaleTo(1, 0)), cc.callFunc(function() {
                                 a.default.score += 100, u.default.Instance.SetScoreTween(a.default.score), e.active = !1, a.default.playerTouch = !0, c.destroy()
                             }))), n.node.active = !1, t.node.active = !1, n.node.destroy(), t.node.destroy()
                         }).start()))

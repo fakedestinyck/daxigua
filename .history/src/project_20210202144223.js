@@ -1015,8 +1015,7 @@ window.__require = function e(t, n, o) {
                     var t = Math.ceil(e / 1500 * 94);
                     t > 94 && (t = 94);
                     var n = 5 + t;
-                    // return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
-                    return "\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", ["\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage"][i.default.returnCurrentLanType() - 1]
+                    return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
                 }, t.Instance = null, c([d(cc.Node)], t.prototype, "clickMask", void 0), c([d(cc.Node)], t.prototype, "failedUiBox", void 0), c([d(cc.Node)], t.prototype, "di", void 0), c([d(cc.Label)], t.prototype, "levelTxt", void 0), c([d(cc.Node)], t.prototype, "guan", void 0), c([d(cc.Node)], t.prototype, "continueTip", void 0), c([d(cc.Label)], t.prototype, "scoreLabel", void 0), c([d(cc.Node)], t.prototype, "highScoreNode", void 0), c([d(cc.Node)], t.prototype, "highScore", void 0), c([d(cc.Label)], t.prototype, "highScoreLabel", void 0), c([d(cc.Label)], t.prototype, "resultTxt", void 0), c([d(cc.Label)], t.prototype, "overTxt", void 0), c([d(cc.Node)], t.prototype, "moreGameBtn", void 0), c([d(cc.Node)], t.prototype, "reStartBtn", void 0), c([d(cc.Vec2)], t.prototype, "failedBoxPos", void 0), c([d], t.prototype, "standardScore", void 0), c([d(cc.Node)], t.prototype, "bgMask", void 0), c([d(cc.Node)], t.prototype, "bencichengji", void 0), c([d(cc.SpriteFrame)], t.prototype, "bencichengjiarr", void 0), c([d(cc.Node)], t.prototype, "gengduoyouxi", void 0), c([d(cc.SpriteFrame)], t.prototype, "gengduoyouxiarr", void 0), c([d(cc.Node)], t.prototype, "adsButton2", void 0), c([d(cc.Node)], t.prototype, "bannerButton", void 0), t = n = c([u], t)
             }(cc.Component);
         n.default = p, cc._RF.pop()
@@ -1247,7 +1246,7 @@ window.__require = function e(t, n, o) {
                         o.runAction(cc.sequence(cc.spawn(cc.moveTo(.255, i).easing(cc.easeCubicActionOut()), cc.scaleTo(.255, 1 * Math.random() + .5), cc.moveBy(4.25, cc.v2(0, .8 * -cc.winSize.height - Math.random() * cc.winSize.height)), cc.rotateBy(4.25, (1800 * Math.random() + 1200) * (Math.random() > .5 ? 1 : -1)), cc.sequence(cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0)), cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0)), cc.moveBy(.17 * (8 * Math.random() + 6), cc.v2((100 * Math.random() + 100) * (Math.random() > .5 ? -1 : 1), 0))), cc.sequence(cc.delayTime(.17 * s.default.getRandomNum(20, 24.5)), cc.fadeOut(.17))), cc.removeSelf(!0)))
                     }
                 }, t.prototype.calculateScore = function(e) {
-                    return window.GAMESETTINGS.calculateScoreFunction(e)
+                    return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                 }, t.prototype.ShowLandParti = function(e, t) {
                     for (var n = t, o = [cc.v2(e.position.x - 8, e.position.y), cc.v2(e.position.x + 8, e.position.y)], c = 0; c < o.length; c++) {
                         if (o[c].x < e.position.x) var a = -1;
@@ -1847,9 +1846,6 @@ window.__require = function e(t, n, o) {
                 if (window.finishSetOptions && !window.finishSetGameConfig) {
                     switch(window.eventVersion) {
                         case 0:
-                            window.GAMESETTINGS.calculateScoreFunction = function(e) {
-                                return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
-                            }
                             break;
                         case 1:
                             window.GAMESETTINGS.startFruit = 9;
@@ -1858,7 +1854,7 @@ window.__require = function e(t, n, o) {
                             window.GAMESETTINGS.boundaryFruit = 1
                             window.GAMESETTINGS.targetFruit = 0
                             window.GAMESETTINGS.calculateScoreFunction = function(e) {
-                                return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
+                                return e
                             }
                             break;
                         default:
