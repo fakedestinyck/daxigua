@@ -1563,10 +1563,10 @@ window.__require = function e(t, n, o) {
                             // }
                             if (t.createFruitCount >= 50) {
                                 // p(random|extra)  = p(random&&extra)  /p  (extra)
-                                // 0.2              = 0.1               /p  (extra)
-                                var addExtraDifficulty = s.default.RandomInteger(0, 2)
+                                // 0.2              = 0.05               /p  (extra)
+                                var addExtraDifficulty = s.default.RandomInteger(0, 4)
                                 if (addExtraDifficulty == 0) {
-                                    // 此时概率需要为1/2
+                                    // 此时概率需要为1/4
                                     extraDifficulty = Math.min(1 , 11-window.difficulty[1])
                                 }
                             }
