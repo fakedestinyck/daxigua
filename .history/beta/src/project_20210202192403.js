@@ -3423,8 +3423,10 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.onBeginContact = function(e, t, n) {
                     var o = this;
                     if (window.GAMESETTINGS.startFruit == window.GAMESETTINGS.targetFruit) {
+                        console.log(123)
                         return false
                     }
+                    console.log(321)
                     if ("downwall" == n.node.group && (t.node.parent = cc.find("Canvas/fruitNode"), 0 == this.wallColl && (d.default.Instance.Play(5, !1, 1), this.wallColl++)), "fruit" == n.node.group) {
                         if (this.endCtrl = !0, t.node.y < n.node.y) return;
                         t.node.parent = cc.find("Canvas/fruitNode"), i.default.Instance.fruitHeigth = i.default.Instance.findHighestFruit(), null != t.node.getComponent(cc.RigidBody) && (t.node.getComponent(cc.RigidBody).angularVelocity = 0);

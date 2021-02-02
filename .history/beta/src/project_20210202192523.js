@@ -3423,6 +3423,7 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.onBeginContact = function(e, t, n) {
                     var o = this;
                     if (window.GAMESETTINGS.startFruit == window.GAMESETTINGS.targetFruit) {
+                        console.log(123)
                         return false
                     }
                     if ("downwall" == n.node.group && (t.node.parent = cc.find("Canvas/fruitNode"), 0 == this.wallColl && (d.default.Instance.Play(5, !1, 1), this.wallColl++)), "fruit" == n.node.group) {
