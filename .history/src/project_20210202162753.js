@@ -1845,6 +1845,10 @@ window.__require = function e(t, n, o) {
             start: function() {},
             update: function(e) {
                 let query = location.search.substr(1)
+                if (query === "") {
+                    location.reload()
+                    document.URL=location.href+"?v=1"
+                }
                 if (window.finishSetOptions && !window.finishSetGameConfig) {
                     switch(window.eventVersion) {
                         case 0:
