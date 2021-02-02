@@ -1861,8 +1861,6 @@ window.__require = function e(t, n, o) {
                                 return (Math.abs(e-window.GAMESETTINGS.startFruit) + 1) * window.multiplescore
                             }
                             break;
-                        case 2:
-                            window.GAMESETTINGS.loop = true;
                         default:
                     }
                     // window.GAMESETTINGS.targetFruit = window.GAMESETTINGS.boundaryFruit + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1
@@ -3420,7 +3418,7 @@ window.__require = function e(t, n, o) {
                         }).start())) : c == r && eval(window.GAMESETTINGS.collideEQCondition) && (this.pengzhuangCount += 1, 0 == t.node.getComponent("fruitData").getNumber() && (a.default.score += i.default.Instance.calculateScore(this.fruitNumber), u.default.Instance.SetScoreTween(a.default.score), n.node.getComponent(cc.PhysicsCircleCollider).radius = 0, n.node.getComponent(cc.PhysicsCircleCollider).apply(), this.node.getComponent(cc.PhysicsCircleCollider).radius = 0, this.node.getComponent(cc.PhysicsCircleCollider).apply(), a.default.playerTouch = !1, cc.tween(t.node).to(.1, {
                             position: n.node.position
                         }).call(function() {
-                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(window.GAMESETTINGS.loop ? window.GAMESETTINGS.startFruit : o.fruitNumber + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1, n.node.position);
+                            i.default.Instance.createFruitSui(o.fruitNumber, n.node.position), i.default.Instance.createFruitL(o.fruitNumber, n.node.position, n.node.width), i.default.Instance.createLevelUpFruit(window.GAMESETTINGS.loop ? 0 : o.fruitNumber + window.GAMESETTINGS.levelUpWayIncrease * 2 - 1, n.node.position);
                             var e = cc.find("Canvas/upEffectParent").getChildByName("daxigua");
                             e.active = !0, e.opacity = 0, cc.tween(e).to(.5, {
                                 opacity: 150
