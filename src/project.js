@@ -1561,7 +1561,7 @@ window.__require = function e(t, n, o) {
                             // if (t.createFruitCount == 100) {
                             //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
                             // }
-                            if (t.createFruitCount >= 1) {
+                            if (t.createFruitCount >= 50) {
                                 // p(random|extra)  = p(random&&extra)  /p  (extra)
                                 // 0.2              = 0.1               /p  (extra)
                                 var addExtraDifficulty = s.default.RandomInteger(0, 2)
