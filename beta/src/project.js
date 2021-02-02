@@ -978,10 +978,14 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.start = function() {
                     var e = i.default.returnCurrentLanType();
                     1 != e && (this.bencichengji.getComponent(cc.Sprite).spriteFrame = this.bencichengjiarr[e - 1], this.gengduoyouxi.getComponent(cc.Sprite).spriteFrame = this.gengduoyouxiarr[e - 1]), this.continueTip.getComponent(cc.Label).string = 1 == e ? "\u70b9\u51fb\u7ee7\u7eed" : 2 == e ? "\u9ede\u64ca\u7e7c\u7e8c" : 4 == e ? "\ud074\ub9ad \ud558\uc5ec \uacc4\uc18d" : "Click Continue", this.reStartBtn.runAction(cc.repeatForever(cc.sequence(cc.scaleTo(.5, 1.1), cc.scaleTo(.55, 1), cc.delayTime(.5)))), cc.tween(this.moreGameBtn).to(.5, {
-                        scale: 1.1
+                        scale: 0
                     }).to(.5, {
-                        scale: 1
+                        scale: 0
                     }).union().repeatForever().start(), cc.tween(this.adsButton2).to(1, {
+                        scale: 0
+                    }).to(1, {
+                        scale: 0
+                    }).union().repeatForever().start(), cc.tween(this.highScoreNode).to(1, {
                         scale: 0
                     }).to(1, {
                         scale: 0
@@ -991,11 +995,12 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.bannerButtonFunc = function() {
                     window.location.href = "sinaweibo://userinfo?uid=2583858490&t=4"
                 }, t.prototype.ShowFailedUi = function(e, t) {
-                    e = e * (window.difficulty[0] + 1);
+                    console.log(e,t)
+                    e = e * (window.difficulty[0] + 1); // TODO: 这里要改
                     t = t * (window.difficulty[0] + 1);
                     var n = this;
                     this.scheduleOnce(function() {
-                        r.default.Instance.HideScorePanel(), n.levelTxt.string = r.default.Instance.level.toString(), n.scoreLabel.string = s.default.score.toString(), n.highScoreLabel.string = t, n.resultTxt.string = n.GetContentByScore(e), n.overTxt.string = "\u5f53\u524d\u5173\u5361\u5df2\u5b8c\u6210" + Math.floor(r.default.Instance.nowYQ / r.default.Instance.passlevelYQ * 100) + "%", n.canClick = !1, n.levelTxt.string = e, n.bgMask.runAction(cc.fadeTo(.36, 150)), n.scheduleOnce(function() {
+                        r.default.Instance.HideScorePanel(), n.levelTxt.string = r.default.Instance.level.toString(), n.scoreLabel.string = s.default.score.toString(), n.highScoreLabel.string = "0", n.resultTxt.string = n.GetContentByScore(e), n.overTxt.string = "\u5f53\u524d\u5173\u5361\u5df2\u5b8c\u6210" + Math.floor(r.default.Instance.nowYQ / r.default.Instance.passlevelYQ * 100) + "%", n.canClick = !1, n.levelTxt.string = e, n.bgMask.runAction(cc.fadeTo(.36, 150)), n.scheduleOnce(function() {
                             i.default.CenteredUi(10, this.di, this.levelTxt.node, this.guan), this.failedUiBox.y = cc.winSize.height / 2 + this.failedUiBox.height / 2, this.failedUiBox.runAction(cc.sequence(cc.moveTo(.36, this.failedBoxPos).easing(cc.easeBackOut()), cc.callFunc(function() {
                                 this.clickMask.on(cc.Node.EventType.TOUCH_START, this.OnClickCloseMask, this), this.moreGameBtn.on(cc.Node.EventType.TOUCH_START, this.OnClickMoreGame, this), this.continueTip.opacity = 0, this.continueTip.runAction(cc.repeatForever(cc.sequence(cc.fadeIn(.5), cc.delayTime(.5), cc.fadeOut(.5)))), this.canClick = !0
                             }, this)))
@@ -1015,8 +1020,9 @@ window.__require = function e(t, n, o) {
                     var t = Math.ceil(e / 1500 * 94);
                     t > 94 && (t = 94);
                     var n = 5 + t;
+                    return "\u5f53\u524d\u6e38\u620f\u6a21\u5f0f\u7f16\u53f7\uff1a" + window.eventVersion
                     // return "\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", ["\u51fb\u8d25\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "\u64ca\u6557\u4e86\u5168\u7403" + n + "%\u7684\u73a9\u5bb6\uff01", "Beat " + n + " % of global players", "\uc804 \uc138\uacc4" + n + "% \uc758 \uc720 \uc800 \ub97c \uc774 \uacbc \uc2b5 \ub2c8 \ub2e4"][i.default.returnCurrentLanType() - 1]
-                    return "\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", ["\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", "\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage"][i.default.returnCurrentLanType() - 1]
+                    // return "\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", ["\u70b9\u51fb\u5de6\u4e0a\u89d2\u76f4\u8fbe\u848b\u7533\u5fae\u535a\u4e3b\u9875", "\u9ede\u64ca\u5de6\u4e0a\u89d2\u76f4\u9054\u8523\u7533\u5fae\u535a\u4e3b\u9801", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage", "Click the icon on the upper left corner to visit Jiangshen's Weibo Homepage"][i.default.returnCurrentLanType() - 1]
                 }, t.Instance = null, c([d(cc.Node)], t.prototype, "clickMask", void 0), c([d(cc.Node)], t.prototype, "failedUiBox", void 0), c([d(cc.Node)], t.prototype, "di", void 0), c([d(cc.Label)], t.prototype, "levelTxt", void 0), c([d(cc.Node)], t.prototype, "guan", void 0), c([d(cc.Node)], t.prototype, "continueTip", void 0), c([d(cc.Label)], t.prototype, "scoreLabel", void 0), c([d(cc.Node)], t.prototype, "highScoreNode", void 0), c([d(cc.Node)], t.prototype, "highScore", void 0), c([d(cc.Label)], t.prototype, "highScoreLabel", void 0), c([d(cc.Label)], t.prototype, "resultTxt", void 0), c([d(cc.Label)], t.prototype, "overTxt", void 0), c([d(cc.Node)], t.prototype, "moreGameBtn", void 0), c([d(cc.Node)], t.prototype, "reStartBtn", void 0), c([d(cc.Vec2)], t.prototype, "failedBoxPos", void 0), c([d], t.prototype, "standardScore", void 0), c([d(cc.Node)], t.prototype, "bgMask", void 0), c([d(cc.Node)], t.prototype, "bencichengji", void 0), c([d(cc.SpriteFrame)], t.prototype, "bencichengjiarr", void 0), c([d(cc.Node)], t.prototype, "gengduoyouxi", void 0), c([d(cc.SpriteFrame)], t.prototype, "gengduoyouxiarr", void 0), c([d(cc.Node)], t.prototype, "adsButton2", void 0), c([d(cc.Node)], t.prototype, "bannerButton", void 0), t = n = c([u], t)
             }(cc.Component);
         n.default = p, cc._RF.pop()
@@ -1549,6 +1555,15 @@ window.__require = function e(t, n, o) {
                 }, t.prototype.onTouchEnd = function(e) {
                     var t = this;
                     var f = window.GAMESETTINGS.firstFewFruits;
+                    if (window.GAMESETTINGS.levelUpWayIncrease == false && window.GAMESETTINGS.startFruit !== window.GAMESETTINGS.targetFruit) {
+                        // 如果是缩小，并且不是只有一种水果的话
+                        // if (t.createFruitCount == 100) {
+                        //     window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
+                        // }
+                        if (t.createFruitCount == 50) {
+                            window.difficulty[1] = Math.min(window.difficulty[1] + 1 , 11)
+                        }
+                    }
                     i.default.playerTouch && null != a.default.Instance.targetFruit && 1 == this.touchNum && (this.touchNum = 0, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).radius = a.default.Instance.targetFruit.height / 2, a.default.Instance.targetFruit.getComponent(cc.PhysicsCircleCollider).apply(), a.default.Instance.targetFruit.getComponent(cc.RigidBody).type = cc.RigidBodyType.Dynamic, a.default.Instance.targetFruit.getComponent(cc.RigidBody).linearVelocity = cc.v2(0, -800), a.default.Instance.targetFruit = null, this.scheduleOnce(function() {
                         i.default.GameUpdateCtrl && (0 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[0]), t.createFruitCount++) : 1 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[1]), t.createFruitCount++) : 2 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[2]), t.createFruitCount++) : 3 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[3]), t.createFruitCount++) : 4 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[4]), t.createFruitCount++) : 5 == t.createFruitCount ? (a.default.Instance.createOneFruit(f[5]), t.createFruitCount++) : t.createFruitCount > 5 && (a.default.Instance.createOneFruit(s.default.RandomInteger(window.difficulty[0], window.difficulty[1])), t.createFruitCount++))
                     }, .5))
