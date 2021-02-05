@@ -5805,15 +5805,6 @@ window.__require = (function e(t, n, o) {
                                                 window.multiplescore
                                             );
                                         };
-                                        window.GAMESETTINGS.startFruit = 1;
-                                        window.GAMESETTINGS.firstFewFruits = [
-                                            1,
-                                            1,
-                                            2,
-                                            3,
-                                            3,
-                                            4,
-                                        ];
                                         window.eventVersionName = "摸黑合蒋申";
                                         document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
                                         break;
@@ -5855,7 +5846,7 @@ window.__require = (function e(t, n, o) {
                             (o.GAME_OVER_BOOL = !0),
                             (o.gameScore = 0),
                             c.loadingScene("MainGameScene");
-                            if (window.eventVersion == 4) {
+                            if (window.GAMESETTINGS.eventVersion == 4) {
                                 document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
                             }
                         },

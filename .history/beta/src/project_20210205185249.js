@@ -5805,14 +5805,13 @@ window.__require = (function e(t, n, o) {
                                                 window.multiplescore
                                             );
                                         };
-                                        window.GAMESETTINGS.startFruit = 1;
                                         window.GAMESETTINGS.firstFewFruits = [
-                                            1,
-                                            1,
-                                            2,
-                                            3,
-                                            3,
-                                            4,
+                                            9,
+                                            9,
+                                            9,
+                                            9,
+                                            9,
+                                            9,
                                         ];
                                         window.eventVersionName = "摸黑合蒋申";
                                         document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
