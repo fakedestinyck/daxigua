@@ -3154,6 +3154,7 @@ window.__require = (function e(t, n, o) {
                                     cc.find("Canvas/uiEffectPanel")
                                     .childrenCount &&
                                     a.default.Instance.RestartGame();
+
                             }),
                             (t.prototype.OnClickMoreGame = function () {
                                 this.canClick &&
@@ -5790,6 +5791,32 @@ window.__require = (function e(t, n, o) {
                                         };
                                         window.eventVersionName = "密堆积蒋申";
                                         break;
+                                    case 4:
+                                        window.GAMESETTINGS.calculateScoreFunction = function (
+                                            e
+                                        ) {
+                                            return (
+                                                (Math.abs(
+                                                        e -
+                                                        window.GAMESETTINGS
+                                                        .startFruit
+                                                    ) +
+                                                    1) *
+                                                window.multiplescore
+                                            );
+                                        };
+                                        window.GAMESETTINGS.startFruit = 1;
+                                        window.GAMESETTINGS.firstFewFruits = [
+                                            1,
+                                            1,
+                                            2,
+                                            3,
+                                            3,
+                                            4,
+                                        ];
+                                        window.eventVersionName = "摸黑合蒋申";
+                                        document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
+                                        break;
                                     default:
                                         window.eventVersionName = "合成蒋申";
                                 }
@@ -5828,6 +5855,9 @@ window.__require = (function e(t, n, o) {
                             (o.GAME_OVER_BOOL = !0),
                             (o.gameScore = 0),
                             c.loadingScene("MainGameScene");
+                            if (window.eventVersion == 4) {
+                                document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
+                            }
                         },
                         SetGameEndScore: function () {
                             a.gameOverShowText(o.gameScore, 1);
@@ -9386,6 +9416,7 @@ window.__require = (function e(t, n, o) {
                                         0 == this.endOne &&
                                         (this.testEndDJS > 3 || (window.GAMESETTINGS.startFruit == window.GAMESETTINGS.targetFruit && this.testEndDJS > 1)))
                                 ) {
+                                    document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'none';
                                     (a.default.GameUpdateCtrl = !1),
                                     (a.default.playerTouch = !1);
                                     for (
