@@ -3501,7 +3501,7 @@ window.__require = (function e(t, n, o) {
                                                                 "fruitData"
                                                             ).fruitNumber + 1;
                                                             console.log(boomFruitScore);
-                                                            (a.default.score += boomFruitScore == 11 ? 100 : 830),
+                                                            (a.default.score += boomFruitScore == 11 ? 830 : 0),
                                                             i.default.Instance.SetScoreTween(
                                                                 a.default.score
                                                             )
