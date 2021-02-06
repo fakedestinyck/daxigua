@@ -3451,6 +3451,13 @@ window.__require = (function e(t, n, o) {
                                         that.createOneFruit(
                                             window.GAMESETTINGS.startFruit
                                         );
+                                        if (window.eventVersion == 5) {
+                                            (a.default.score =
+                                                135),
+                                            i.default.Instance.SetScoreTween(
+                                                a.default.score
+                                            );
+                                        }
                                         clearInterval(recheckOptions);
                                     }
                                 }, 200);
@@ -3488,12 +3495,13 @@ window.__require = (function e(t, n, o) {
                                                             .width
                                                         )
                                                         if (window.GAMESETTINGS.startFruit != window.GAMESETTINGS.targetFruit) {
-                                                            (a.default.score +=
-                                                                e.fruitNode.children[
-                                                                    n
-                                                                ].getComponent(
-                                                                    "fruitData"
-                                                                ).fruitNumber + 1),
+                                                            var boomFruitScore = e.fruitNode.children[
+                                                                n
+                                                            ].getComponent(
+                                                                "fruitData"
+                                                            ).fruitNumber + 1;
+                                                            console.log(boomFruitScore);
+                                                            (a.default.score += boomFruitScore == 11 ? 100 : 830),
                                                             i.default.Instance.SetScoreTween(
                                                                 a.default.score
                                                             )
@@ -4817,7 +4825,23 @@ window.__require = (function e(t, n, o) {
                                                     i.default.score
                                                 );
                                             }
-                                            i.default.GameUpdateCtrl &&
+                                            if (
+                                                window.eventVersion == 5
+                                            ) {
+                                                if (i.default.score >= 0) {
+                                                    (i.default.score =
+                                                        i.default.score - 1),
+                                                    z.default.Instance.SetScoreTween(
+                                                        i.default.score
+                                                    );
+                                                } else {
+                                                    return false
+                                                }
+                                            }
+                                            if (window.eventVersion == 5 && t.createFruitCount >= 134) {
+                                                return false
+                                            }
+                                            i.default.GameUpdateCtrl && 
                                                 (0 == t.createFruitCount ?
                                                     (a.default.Instance.createOneFruit(
                                                             f[0]
@@ -5816,6 +5840,18 @@ window.__require = (function e(t, n, o) {
                                         ];
                                         window.eventVersionName = "摸黑合蒋申";
                                         document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
+                                        break;
+                                    case 5:
+                                        window.GAMESETTINGS.calculateScoreFunction = function (
+                                            o
+                                        ) {
+                                            return 0;
+                                        };
+                                        window.GAMESETTINGS.startFruit = 3;
+                                        window.GAMESETTINGS.firstFewFruits = [
+                                            3,3,3,3,3,3
+                                        ];
+                                        window.eventVersionName = "最优解合蒋申";
                                         break;
                                     default:
                                         window.eventVersionName = "合成蒋申";
@@ -9408,6 +9444,7 @@ window.__require = (function e(t, n, o) {
                                             (this.returnNumber = !1)),
                                         "fruitNode" == this.node.parent.name &&
                                         (this.testEndDJS += e),
+                                        (window.eventVersion ==5 && a.default.score <= 0 && 0 == this.pengzhuangCount && this.testEndDJS > 3 && 0 == this.endOne && this.endCtrl) ||
                                         this.node.y + this.node.width / 2 >
                                         cc.find("Canvas/lineNode").children[0]
                                         .y &&
