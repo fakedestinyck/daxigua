@@ -5857,6 +5857,26 @@ window.__require = (function e(t, n, o) {
                                         ];
                                         window.eventVersionName = "最优解合蒋申";
                                         break;
+                                    case 6:
+                                        window.GAMESETTINGS.calculateScoreFunction = function (
+                                            e
+                                        ) {
+                                            return (
+                                                (Math.abs(
+                                                        e -
+                                                        window.GAMESETTINGS
+                                                        .startFruit
+                                                    ) +
+                                                    1) *
+                                                window.multiplescore
+                                            );
+                                        };
+                                        window.GAMESETTINGS.startFruit = 9;
+                                        window.GAMESETTINGS.firstFewFruits = [
+                                            9,9,9,9,9,9
+                                        ];
+                                        window.eventVersionName = "直接合大蒋申";
+                                        break;
                                     default:
                                         window.eventVersionName = "合成蒋申";
                                 }
@@ -9774,10 +9794,12 @@ window.__require = (function e(t, n, o) {
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
                                                                         // window.GAMESETTINGS.gameShouldFinishImmediately = true;
-                                                                        (a.default.GameUpdateCtrl = !1),
-                                                                        (a.default.playerTouch = !1);
-                                                                        i.default.Instance.end();
-                                                                        this.endOne++;
+                                                                        if (window.eventVersion == 5) {
+                                                                            (a.default.GameUpdateCtrl = !1),
+                                                                            (a.default.playerTouch = !1);
+                                                                            i.default.Instance.end();
+                                                                            this.endOne++;
+                                                                        }
                                                                     }
                                                                 )
                                                             )
