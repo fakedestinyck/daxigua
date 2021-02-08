@@ -3501,11 +3501,7 @@ window.__require = (function e(t, n, o) {
                                                                 "fruitData"
                                                             ).fruitNumber + 1;
                                                             console.log(boomFruitScore);
-                                                            if (window.eventVersion == 5) {
-                                                                a.default.score += boomFruitScore == 11 ? 830 : 0
-                                                            } else {
-                                                                a.default.score += boomFruitScore
-                                                            }
+                                                            (a.default.score += boomFruitScore == 11 ? 830 : 0),
                                                             i.default.Instance.SetScoreTween(
                                                                 a.default.score
                                                             )
@@ -9763,7 +9759,8 @@ window.__require = (function e(t, n, o) {
                                                                 ),
                                                                 cc.callFunc(
                                                                     function () {
-                                                                        var extraScore = window.eventVersion != 5 ? 100 : 0;
+                                                                        var extraScore = window.eventType != 5 ? 100 : 0;
+                                                                        console.log(extraScore);
                                                                         (a.default.score += extraScore),
                                                                         u.default.Instance.SetScoreTween(
                                                                                 a
@@ -9773,11 +9770,6 @@ window.__require = (function e(t, n, o) {
                                                                             (e.active = !1),
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
-                                                                        // window.GAMESETTINGS.gameShouldFinishImmediately = true;
-                                                                        (a.default.GameUpdateCtrl = !1),
-                                                                        (a.default.playerTouch = !1);
-                                                                        i.default.Instance.end();
-                                                                        this.endOne++;
                                                                     }
                                                                 )
                                                             )

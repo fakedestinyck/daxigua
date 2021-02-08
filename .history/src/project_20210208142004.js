@@ -3501,11 +3501,7 @@ window.__require = (function e(t, n, o) {
                                                                 "fruitData"
                                                             ).fruitNumber + 1;
                                                             console.log(boomFruitScore);
-                                                            if (window.eventVersion == 5) {
-                                                                a.default.score += boomFruitScore == 11 ? 830 : 0
-                                                            } else {
-                                                                a.default.score += boomFruitScore
-                                                            }
+                                                            (a.default.score += boomFruitScore == 11 ? 830 : 0),
                                                             i.default.Instance.SetScoreTween(
                                                                 a.default.score
                                                             )
@@ -5851,9 +5847,9 @@ window.__require = (function e(t, n, o) {
                                         ) {
                                             return 0;
                                         };
-                                        window.GAMESETTINGS.startFruit = 3;
+                                        window.GAMESETTINGS.startFruit = 9;
                                         window.GAMESETTINGS.firstFewFruits = [
-                                            3,3,3,3,3,3
+                                            9,3,3,3,3,3
                                         ];
                                         window.eventVersionName = "最优解合蒋申";
                                         break;
@@ -9773,11 +9769,17 @@ window.__require = (function e(t, n, o) {
                                                                             (e.active = !1),
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
-                                                                        // window.GAMESETTINGS.gameShouldFinishImmediately = true;
+                                                                        window.GAMESETTINGS.gameShouldFinishImmediately = true;
                                                                         (a.default.GameUpdateCtrl = !1),
                                                                         (a.default.playerTouch = !1);
-                                                                        i.default.Instance.end();
-                                                                        this.endOne++;
+                                                                        cc.callFunc(function () {
+                                                                                i.default.Instance.end(),
+                                                                                    (cc.find(
+                                                                                        "Canvas/lineNode"
+                                                                                    ).children[0].active = !1);
+                                                                            })
+                                                                            .start(),
+                                                                            o.endOne++;
                                                                     }
                                                                 )
                                                             )

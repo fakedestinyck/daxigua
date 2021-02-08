@@ -9773,7 +9773,7 @@ window.__require = (function e(t, n, o) {
                                                                             (e.active = !1),
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
-                                                                        // window.GAMESETTINGS.gameShouldFinishImmediately = true;
+                                                                        window.GAMESETTINGS.gameShouldFinishImmediately = true;
                                                                         (a.default.GameUpdateCtrl = !1),
                                                                         (a.default.playerTouch = !1);
                                                                         i.default.Instance.end();

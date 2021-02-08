@@ -5851,9 +5851,9 @@ window.__require = (function e(t, n, o) {
                                         ) {
                                             return 0;
                                         };
-                                        window.GAMESETTINGS.startFruit = 3;
+                                        window.GAMESETTINGS.startFruit = 9;
                                         window.GAMESETTINGS.firstFewFruits = [
-                                            3,3,3,3,3,3
+                                            9,3,3,3,3,3
                                         ];
                                         window.eventVersionName = "最优解合蒋申";
                                         break;
@@ -9773,7 +9773,7 @@ window.__require = (function e(t, n, o) {
                                                                             (e.active = !1),
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
-                                                                        // window.GAMESETTINGS.gameShouldFinishImmediately = true;
+                                                                        window.GAMESETTINGS.gameShouldFinishImmediately = true;
                                                                         (a.default.GameUpdateCtrl = !1),
                                                                         (a.default.playerTouch = !1);
                                                                         i.default.Instance.end();
