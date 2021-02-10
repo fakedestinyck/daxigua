@@ -6064,28 +6064,13 @@ window.__require = (function e(t, n, o) {
                                 btn: ["知道了"],
                                 yes: function (index, layero) {
                                     layer.close(index);
-                                    window.GAMESETTINGS.startFruit =
-                                        window.difficulty[0];
-                                    window.GAMESETTINGS.firstFewFruits = [
-                                        window.difficulty[0],
-                                        window.difficulty[0],
-                                        window.difficulty[1],
-                                        window.difficulty[2],
-                                        window.difficulty[2],
-                                        window.difficulty[3],
-                                    ];
-                                    window.GAMESETTINGS.boundaryFruit =
-                                        window.GAMESETTINGS.order[
-                                            window.GAMESETTINGS.order.length - 1
-                                        ];
-                                    window.GAMESETTINGS.collideNEQCondition = `c != ${window.GAMESETTINGS.boundaryFruit} && r != ${window.GAMESETTINGS.boundaryFruit} && c != 10`;
-                                    c.loadingScene("MainGameScene");
+                                    window.finishSetOptions = true;
                                 },
                                 btnAlign: "c",
                                 shadeClose: false, //开启遮罩关闭
                                 moveType: 1, //拖拽模式，0或者1
                                 content:
-                                    '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>下轮游戏顺序</h4>' +
+                                    '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>本轮游戏顺序</h4>' +
                                     '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>' +
                                     displayTmpArr.join("->") +
                                     "</h5>" +
@@ -6116,9 +6101,8 @@ window.__require = (function e(t, n, o) {
                                     // }
                                 },
                             });
-                        } else {
-                            c.loadingScene("MainGameScene");
                         }
+                        c.loadingScene("MainGameScene");
                         if (window.eventVersion == 4) {
                             document.getElementsByClassName(
                                 "gamesettingsSelection-mask"

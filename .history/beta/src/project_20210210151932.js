@@ -6079,13 +6079,12 @@ window.__require = (function e(t, n, o) {
                                             window.GAMESETTINGS.order.length - 1
                                         ];
                                     window.GAMESETTINGS.collideNEQCondition = `c != ${window.GAMESETTINGS.boundaryFruit} && r != ${window.GAMESETTINGS.boundaryFruit} && c != 10`;
-                                    c.loadingScene("MainGameScene");
                                 },
                                 btnAlign: "c",
                                 shadeClose: false, //开启遮罩关闭
                                 moveType: 1, //拖拽模式，0或者1
                                 content:
-                                    '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>下轮游戏顺序</h4>' +
+                                    '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>本轮游戏顺序</h4>' +
                                     '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>' +
                                     displayTmpArr.join("->") +
                                     "</h5>" +
@@ -6116,9 +6115,8 @@ window.__require = (function e(t, n, o) {
                                     // }
                                 },
                             });
-                        } else {
-                            c.loadingScene("MainGameScene");
                         }
+                        c.loadingScene("MainGameScene");
                         if (window.eventVersion == 4) {
                             document.getElementsByClassName(
                                 "gamesettingsSelection-mask"

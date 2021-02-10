@@ -261,9 +261,7 @@
                         let displayTmpArr = tmpArr.map((each) => {
                             return each+1
                         })
-                        console.log(tmpArr)
                         window.difficulty = tmpArr.slice(0, 6);
-                        window.GAMESETTINGS.order = tmpArr;
                         layer.open({
                             type: 1,
                             title: false, //不显示标题栏
@@ -282,7 +280,7 @@
                             moveType: 1, //拖拽模式，0或者1
                             content:
                                 '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>本轮游戏顺序</h4>' +
-                                '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>'+displayTmpArr.join('->')+'</h5>' +
+                                '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>'+tmpArr.join('->')+'</h5>' +
                                 // '<button name="difficulty" onclick="changeDifficulty(this,[0,10])">随缘Play</button><br>' +
                                 // '<button name="difficulty" onclick="changeDifficulty(this,[0,0])">圣雄肝帝</button><br>' +
                                 // '<button name="difficulty" style="background-color:#1E9FFF" onclick="changeDifficulty(this,[0,5])">原汁原味</button><br>' +

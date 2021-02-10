@@ -256,6 +256,7 @@
                 yes: function (index, layero) {
                     layer.close(index);
                     if (window.eventVersion == 7) {
+                        // let tmpArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
                         let tmpArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
                         tmpArr.shuffle();
                         let displayTmpArr = tmpArr.map((each) => {

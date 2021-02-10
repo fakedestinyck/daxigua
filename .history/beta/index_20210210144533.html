@@ -256,63 +256,11 @@
                 yes: function (index, layero) {
                     layer.close(index);
                     if (window.eventVersion == 7) {
-                        let tmpArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-                        tmpArr.shuffle();
-                        let displayTmpArr = tmpArr.map((each) => {
-                            return each+1
-                        })
-                        console.log(tmpArr)
-                        window.difficulty = tmpArr.slice(0, 6);
-                        window.GAMESETTINGS.order = tmpArr;
-                        layer.open({
-                            type: 1,
-                            title: false, //不显示标题栏
-                            closeBtn: false,
-                            area: "300px;",
-                            shade: 0.8,
-                            id: "layer3", //设定一个id，防止重复弹出
-                            resize: false,
-                            btn: ["知道了"],
-                            yes: function (index, layero) {
-                                layer.close(index);
-                                window.finishSetOptions = true;
-                            },
-                            btnAlign: "c",
-                            shadeClose: false, //开启遮罩关闭
-                            moveType: 1, //拖拽模式，0或者1
-                            content:
-                                '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>本轮游戏顺序</h4>' +
-                                '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>'+displayTmpArr.join('->')+'</h5>' +
-                                // '<button name="difficulty" onclick="changeDifficulty(this,[0,10])">随缘Play</button><br>' +
-                                // '<button name="difficulty" onclick="changeDifficulty(this,[0,0])">圣雄肝帝</button><br>' +
-                                // '<button name="difficulty" style="background-color:#1E9FFF" onclick="changeDifficulty(this,[0,5])">原汁原味</button><br>' +
-                                // '<button name="difficulty" onclick="changeDifficulty(this,[5,5])">作弊模式</button><br>' +
-                                // '<button name="difficulty" onclick="changeDifficulty(this,[2,7])">去除小瓜</button><br>' +
-                                // '<button name="difficulty" onclick="changeDifficulty(this,[9,9])">暴力吃瓜</button><br>' +
-                                // '</div>' +
-                                // '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>分数选择</h4>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,2)">两倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,5)">五倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,10)">十倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,100)">百倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,1000)">千倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,10000)">万倍暴击</button><br>' +
-                                // '<button name="fanbei" onclick="multipleScore(this,100000)">十万伏特</button><br>' +
-                                "</div>",
-
-                            success: function (layero) {
-                                // window.GAMESETTINGS = {
-                                //     startFruit: 0,
-                                //     firstFewFruits: [0,0,1,2,2,3],
-                                //     levelUpWayIncrease: true,
-                                //     boundaryFruit: 9,
-                                //     targetFruit: 10
-                                // }
-                            },
-                        });
-                    } else {
-                        window.finishSetOptions = true;
+                        let tmpArr = [0,1,2,3,4,5,6,7,8,9]
+                        tmpArr.shuffle()
+                        window.difficulty = tmpArr.slice(0,6)
                     }
+                    window.finishSetOptions = true;
                 },
                 btnAlign: "c",
                 shadeClose: false, //开启遮罩关闭
