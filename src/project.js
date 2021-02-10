@@ -3154,7 +3154,6 @@ window.__require = (function e(t, n, o) {
                                     cc.find("Canvas/uiEffectPanel")
                                     .childrenCount &&
                                     a.default.Instance.RestartGame();
-
                             }),
                             (t.prototype.OnClickMoreGame = function () {
                                 this.canClick &&
@@ -3452,8 +3451,7 @@ window.__require = (function e(t, n, o) {
                                             window.GAMESETTINGS.startFruit
                                         );
                                         if (window.eventVersion == 5) {
-                                            (a.default.score =
-                                                135),
+                                            (a.default.score = 135),
                                             i.default.Instance.SetScoreTween(
                                                 a.default.score
                                             );
@@ -3484,35 +3482,59 @@ window.__require = (function e(t, n, o) {
                                             n = function (n) {
                                                 setTimeout(function () {
                                                     e.createFruitL(
+                                                        e.fruitNode.children[
+                                                            n
+                                                        ].getComponent(
+                                                            "fruitData"
+                                                        ).fruitNumber,
+                                                        e.fruitNode.children[n]
+                                                        .position,
+                                                        e.fruitNode.children[n]
+                                                        .width
+                                                    );
+                                                    if (
+                                                        window.GAMESETTINGS
+                                                        .startFruit !=
+                                                        window.GAMESETTINGS
+                                                        .targetFruit
+                                                    ) {
+                                                        var boomFruitScore =
                                                             e.fruitNode.children[
                                                                 n
                                                             ].getComponent(
                                                                 "fruitData"
-                                                            ).fruitNumber,
-                                                            e.fruitNode.children[n]
-                                                            .position,
-                                                            e.fruitNode.children[n]
-                                                            .width
-                                                        )
-                                                        if (window.GAMESETTINGS.startFruit != window.GAMESETTINGS.targetFruit) {
-                                                            var boomFruitScore = e.fruitNode.children[
-                                                                n
-                                                            ].getComponent(
-                                                                "fruitData"
                                                             ).fruitNumber + 1;
-                                                            console.log(boomFruitScore);
-                                                            if (window.eventVersion == 5) {
-                                                                a.default.score += boomFruitScore == 11 ? 830 : 0
-                                                            } else {
-                                                                a.default.score += boomFruitScore
-                                                            }
-                                                            i.default.Instance.SetScoreTween(
-                                                                a.default.score
-                                                            )
+                                                        if (window.eventVersion == 7) {
+                                                            boomFruitScore = window.GAMESETTINGS.order.indexOf(
+                                                                e.fruitNode.children[
+                                                                    n
+                                                                ].getComponent(
+                                                                    "fruitData"
+                                                                ).fruitNumber
+                                                            ) + 1
                                                         }
-                                                        (e.fruitNode.children[
-                                                            n
-                                                        ].active = !1);
+                                                        console.log(
+                                                            boomFruitScore
+                                                        );
+                                                        if (
+                                                            window.eventVersion ==
+                                                            5
+                                                        ) {
+                                                            a.default.score +=
+                                                                boomFruitScore ==
+                                                                11 ?
+                                                                830 :
+                                                                0;
+                                                        } else {
+                                                            a.default.score += boomFruitScore;
+                                                        }
+                                                        i.default.Instance.SetScoreTween(
+                                                            a.default.score
+                                                        );
+                                                    }
+                                                    e.fruitNode.children[
+                                                        n
+                                                    ].active = !1;
                                                 }, 100 * ++t);
                                             },
                                             o =
@@ -4829,9 +4851,7 @@ window.__require = (function e(t, n, o) {
                                                     i.default.score
                                                 );
                                             }
-                                            if (
-                                                window.eventVersion == 5
-                                            ) {
+                                            if (window.eventVersion == 5) {
                                                 if (i.default.score >= 0) {
                                                     (i.default.score =
                                                         i.default.score - 1),
@@ -4839,13 +4859,16 @@ window.__require = (function e(t, n, o) {
                                                         i.default.score
                                                     );
                                                 } else {
-                                                    return false
+                                                    return false;
                                                 }
                                             }
-                                            if (window.eventVersion == 5 && t.createFruitCount >= 134) {
-                                                return false
+                                            if (
+                                                window.eventVersion == 5 &&
+                                                t.createFruitCount >= 134
+                                            ) {
+                                                return false;
                                             }
-                                            i.default.GameUpdateCtrl && 
+                                            i.default.GameUpdateCtrl &&
                                                 (0 == t.createFruitCount ?
                                                     (a.default.Instance.createOneFruit(
                                                             f[0]
@@ -4878,9 +4901,18 @@ window.__require = (function e(t, n, o) {
                                                         t.createFruitCount++) :
                                                     t.createFruitCount > 5 &&
                                                     (a.default.Instance.createOneFruit(
+                                                            window.eventVersion == 7 ?
+                                                            window.difficulty[
+                                                                s.default.RandomInteger(
+                                                                    0,
+                                                                    6
+                                                                )
+                                                            ] :
                                                             s.default.RandomInteger(
-                                                                window.difficulty[0],
-                                                                window.difficulty[1] +
+                                                                window
+                                                                .difficulty[0],
+                                                                window
+                                                                .difficulty[1] +
                                                                 extraDifficulty
                                                             )
                                                         ),
@@ -5843,7 +5875,9 @@ window.__require = (function e(t, n, o) {
                                             4,
                                         ];
                                         window.eventVersionName = "摸黑合蒋申";
-                                        document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
+                                        document.getElementsByClassName(
+                                            "gamesettingsSelection-mask"
+                                        )[0].style.display = "block";
                                         break;
                                     case 5:
                                         window.GAMESETTINGS.calculateScoreFunction = function (
@@ -5853,7 +5887,12 @@ window.__require = (function e(t, n, o) {
                                         };
                                         window.GAMESETTINGS.startFruit = 3;
                                         window.GAMESETTINGS.firstFewFruits = [
-                                            3,3,3,3,3,3
+                                            3,
+                                            3,
+                                            3,
+                                            3,
+                                            3,
+                                            3,
                                         ];
                                         window.eventVersionName = "最优解合蒋申";
                                         break;
@@ -5873,9 +5912,38 @@ window.__require = (function e(t, n, o) {
                                         };
                                         window.GAMESETTINGS.startFruit = 9;
                                         window.GAMESETTINGS.firstFewFruits = [
-                                            9,9,9,9,9,9
+                                            9,
+                                            9,
+                                            9,
+                                            9,
+                                            9,
+                                            9,
                                         ];
                                         window.eventVersionName = "直接合大蒋申";
+                                        break;
+                                    case 7:
+                                        window.GAMESETTINGS.calculateScoreFunction = function (
+                                            e
+                                        ) {
+                                            return (
+                                                (window.GAMESETTINGS.order.indexOf(e) + 1) * window.multiplescore
+                                            );
+                                        };
+                                        window.GAMESETTINGS.startFruit =
+                                            window.difficulty[0];
+                                        window.GAMESETTINGS.firstFewFruits = [
+                                            window.difficulty[0],
+                                            window.difficulty[0],
+                                            window.difficulty[1],
+                                            window.difficulty[2],
+                                            window.difficulty[2],
+                                            window.difficulty[3],
+                                        ];
+                                        window.GAMESETTINGS.boundaryFruit =
+                                            window.GAMESETTINGS.order[
+                                                window.GAMESETTINGS.order.length - 1
+                                            ];
+                                        window.eventVersionName = "加加减减合蒋申";
                                         break;
                                     default:
                                         window.eventVersionName = "合成蒋申";
@@ -5897,6 +5965,9 @@ window.__require = (function e(t, n, o) {
                                     window.GAMESETTINGS.boundaryFruit +
                                     " && r == " +
                                     window.GAMESETTINGS.boundaryFruit;
+                                if (window.eventVersion == 7) {
+                                    window.GAMESETTINGS.collideNEQCondition = `c != ${window.GAMESETTINGS.boundaryFruit} && r != ${window.GAMESETTINGS.boundaryFruit} && c != 10`;
+                                }
                                 window.finishSetGameConfig = true;
                             }
                             this.gameOverGoToOVer();
@@ -5912,11 +5983,90 @@ window.__require = (function e(t, n, o) {
                             o.gameScore = e;
                         },
                         RestartGame: function () {
-                            (o.GAME_OVER_BOOL = !0),
-                            (o.gameScore = 0),
-                            c.loadingScene("MainGameScene");
+                            (o.GAME_OVER_BOOL = !0), (o.gameScore = 0);
+                            if (window.eventVersion == 7) {
+                                let tmpArr_A = [0, 1, 2]
+                                let tmpArr_B = [3, 4, 5, 6]
+                                let tmpArr_C = [7, 8, 9]
+                                tmpArr_A.shuffle();
+                                tmpArr_B.shuffle();
+                                tmpArr_C.shuffle();
+                                let tmpArr = tmpArr_A.concat(tmpArr_B).concat(tmpArr_C)
+                                let displayTmpArr = tmpArr.map((each) => {
+                                    return each + 1;
+                                });
+                                console.log(tmpArr);
+                                window.difficulty = tmpArr.slice(0, 6);
+                                window.GAMESETTINGS.order = tmpArr;
+                                layer.open({
+                                    type: 1,
+                                    title: false, //不显示标题栏
+                                    closeBtn: false,
+                                    area: "300px;",
+                                    shade: 0.8,
+                                    id: "layer3", //设定一个id，防止重复弹出
+                                    resize: false,
+                                    btn: ["知道了"],
+                                    yes: function (index, layero) {
+                                        layer.close(index);
+                                        window.GAMESETTINGS.startFruit =
+                                            window.difficulty[0];
+                                        window.GAMESETTINGS.firstFewFruits = [
+                                            window.difficulty[0],
+                                            window.difficulty[0],
+                                            window.difficulty[1],
+                                            window.difficulty[2],
+                                            window.difficulty[2],
+                                            window.difficulty[3],
+                                        ];
+                                        window.GAMESETTINGS.boundaryFruit =
+                                            window.GAMESETTINGS.order[
+                                                window.GAMESETTINGS.order.length - 1
+                                            ];
+                                        window.GAMESETTINGS.collideNEQCondition = `c != ${window.GAMESETTINGS.boundaryFruit} && r != ${window.GAMESETTINGS.boundaryFruit} && c != 10`;
+                                        c.loadingScene("MainGameScene");
+                                    },
+                                    btnAlign: "c",
+                                    shadeClose: false, //开启遮罩关闭
+                                    moveType: 1, //拖拽模式，0或者1
+                                    content: '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>下轮游戏顺序</h4>' +
+                                        '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h5>' +
+                                        displayTmpArr.join("->") +
+                                        "</h5>" +
+                                        // '<button name="difficulty" onclick="changeDifficulty(this,[0,10])">随缘Play</button><br>' +
+                                        // '<button name="difficulty" onclick="changeDifficulty(this,[0,0])">圣雄肝帝</button><br>' +
+                                        // '<button name="difficulty" style="background-color:#1E9FFF" onclick="changeDifficulty(this,[0,5])">原汁原味</button><br>' +
+                                        // '<button name="difficulty" onclick="changeDifficulty(this,[5,5])">作弊模式</button><br>' +
+                                        // '<button name="difficulty" onclick="changeDifficulty(this,[2,7])">去除小瓜</button><br>' +
+                                        // '<button name="difficulty" onclick="changeDifficulty(this,[9,9])">暴力吃瓜</button><br>' +
+                                        // '</div>' +
+                                        // '<div style="padding: 10px;text-align:center; line-height: 5px; background-color: rgba(0,0,0,0.3); color: #fff;"><h4>分数选择</h4>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,2)">两倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,5)">五倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,10)">十倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,100)">百倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,1000)">千倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,10000)">万倍暴击</button><br>' +
+                                        // '<button name="fanbei" onclick="multipleScore(this,100000)">十万伏特</button><br>' +
+                                        "</div>",
+
+                                    success: function (layero) {
+                                        // window.GAMESETTINGS = {
+                                        //     startFruit: 0,
+                                        //     firstFewFruits: [0,0,1,2,2,3],
+                                        //     levelUpWayIncrease: true,
+                                        //     boundaryFruit: 9,
+                                        //     targetFruit: 10
+                                        // }
+                                    },
+                                });
+                            } else {
+                                c.loadingScene("MainGameScene");
+                            }
                             if (window.eventVersion == 4) {
-                                document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'block'
+                                document.getElementsByClassName(
+                                    "gamesettingsSelection-mask"
+                                )[0].style.display = "block";
                             }
                         },
                         SetGameEndScore: function () {
@@ -9468,16 +9618,28 @@ window.__require = (function e(t, n, o) {
                                             (this.returnNumber = !1)),
                                         "fruitNode" == this.node.parent.name &&
                                         (this.testEndDJS += e),
-                                        (window.eventVersion ==5 && a.default.score <= 0 && 0 == this.pengzhuangCount && this.testEndDJS > 3 && 0 == this.endOne && this.endCtrl) ||
-                                        this.node.y + this.node.width / 2 >
-                                        cc.find("Canvas/lineNode").children[0]
-                                        .y &&
-                                        (0 == this.pengzhuangCount) &&
-                                        this.endCtrl &&
-                                        0 == this.endOne &&
-                                        (this.testEndDJS > 3 || (window.GAMESETTINGS.startFruit == window.GAMESETTINGS.targetFruit && this.testEndDJS > 1)))
+                                        (window.eventVersion == 5 &&
+                                            a.default.score <= 0 &&
+                                            0 == this.pengzhuangCount &&
+                                            this.testEndDJS > 3 &&
+                                            0 == this.endOne &&
+                                            this.endCtrl) ||
+                                        (this.node.y + this.node.width / 2 >
+                                            cc.find("Canvas/lineNode")
+                                            .children[0].y &&
+                                            0 == this.pengzhuangCount &&
+                                            this.endCtrl &&
+                                            0 == this.endOne &&
+                                            (this.testEndDJS > 3 ||
+                                                (window.GAMESETTINGS
+                                                    .startFruit ==
+                                                    window.GAMESETTINGS
+                                                    .targetFruit &&
+                                                    this.testEndDJS > 1))))
                                 ) {
-                                    document.getElementsByClassName('gamesettingsSelection-mask')[0].style.display = 'none';
+                                    document.getElementsByClassName(
+                                        "gamesettingsSelection-mask"
+                                    )[0].style.display = "none";
                                     (a.default.GameUpdateCtrl = !1),
                                     (a.default.playerTouch = !1);
                                     for (
@@ -9607,12 +9769,21 @@ window.__require = (function e(t, n, o) {
                                                             n.node.width
                                                         ),
                                                         i.default.Instance.createLevelUpFruit(
+                                                            window.eventVersion !=
+                                                            7 ?
                                                             o.fruitNumber +
                                                             window
                                                             .GAMESETTINGS
                                                             .levelUpWayIncrease *
                                                             2 -
-                                                            1,
+                                                            1 :
+                                                            window
+                                                            .GAMESETTINGS
+                                                            .order[
+                                                                window.GAMESETTINGS.order.indexOf(
+                                                                    o.fruitNumber
+                                                                ) + 1
+                                                            ],
                                                             n.node.position
                                                         ),
                                                         (n.node.active = !1),
@@ -9676,12 +9847,15 @@ window.__require = (function e(t, n, o) {
                                                             window
                                                             .GAMESETTINGS
                                                             .startFruit :
+                                                            window.eventVersion !=
+                                                            7 ?
                                                             o.fruitNumber +
                                                             window
                                                             .GAMESETTINGS
                                                             .levelUpWayIncrease *
                                                             2 -
-                                                            1,
+                                                            1 :
+                                                            10,
                                                             n.node.position
                                                         );
                                                     var e = cc
@@ -9783,7 +9957,11 @@ window.__require = (function e(t, n, o) {
                                                                 ),
                                                                 cc.callFunc(
                                                                     function () {
-                                                                        var extraScore = window.eventVersion != 5 ? 100 : 0;
+                                                                        var extraScore =
+                                                                            window.eventVersion !=
+                                                                            5 ?
+                                                                            100 :
+                                                                            0;
                                                                         (a.default.score += extraScore),
                                                                         u.default.Instance.SetScoreTween(
                                                                                 a
@@ -9794,11 +9972,15 @@ window.__require = (function e(t, n, o) {
                                                                             (a.default.playerTouch = !0),
                                                                             c.destroy();
                                                                         // window.GAMESETTINGS.gameShouldFinishImmediately = true;
-                                                                        if (window.eventVersion == 5) {
+                                                                        if (
+                                                                            window.eventVersion ==
+                                                                            5
+                                                                        ) {
                                                                             (a.default.GameUpdateCtrl = !1),
                                                                             (a.default.playerTouch = !1);
                                                                             i.default.Instance.end();
-                                                                            this.endOne++;
+                                                                            this
+                                                                                .endOne++;
                                                                         }
                                                                     }
                                                                 )
